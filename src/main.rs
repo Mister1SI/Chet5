@@ -14,6 +14,7 @@ fn main() {
     };
 
     args.next();
+
     if let Some(arg) = args.next() {
         if arg == String::from("-s") {
             config.server_mode = true;
@@ -25,7 +26,7 @@ fn main() {
         }
     } else {
         chet5::help();
-        process::exit(1);
+        process::exit(0);
     }
 
     if let Some(arg) = args.next() {
@@ -36,12 +37,16 @@ fn main() {
     }
 
     if let Some(arg) = args.next() {
-
+        config.port = arg;
     } else {
         println!("No port was supplied as an argument.\nRun without arguments for help menu.");
         process::exit(1);
     }
 
-
+    if (config.server_mode) {
+        server::server(config);
+    } else {
+        client::client(config);
+    }
 
 }

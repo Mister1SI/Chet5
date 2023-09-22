@@ -22,8 +22,6 @@ mode:
 ip: The IPv4 address to host on or connect to.
 
 port: The port to host on or connect to.
-
-
     "#;
     println!("{}", help_text);
 }

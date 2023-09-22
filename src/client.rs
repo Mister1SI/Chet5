@@ -1,5 +1,5 @@
+use crate::Config;
 
-
-pub fn client() {
+pub fn client(config: Config) {
 
 }
