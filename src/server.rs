@@ -35,7 +35,10 @@ fn handle(mut stream: TcpStream) {
     while let Ok(bytes_read) = stream.read(&mut buffer) {
         if bytes_read == 0 {
             break;
+        } else {
+            let trimmed = String::from(String::from_utf8_lossy(&buffer[..bytes_read]));
+            print!("{}", trimmed);
+
         }
-        println!("{}", String::from_utf8_lossy(&buffer))
     }
 }
