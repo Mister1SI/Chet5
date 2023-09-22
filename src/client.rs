@@ -21,7 +21,7 @@ pub fn client(config: Config) {
         if let Ok(_) = io::stdin().read_line(&mut input) {
             println!("Input before comparison: \"{}\"", input);
             println!("\"{}\"", input);
-            if input.trim().to_lowercase() == "exit!\n" {
+            if &input[0..5] == "exit!" {
                 println!("Exiting program");
                 process::exit(0);
             } else {
@@ -39,3 +39,4 @@ pub fn client(config: Config) {
     }
 
 }
+//cargo run -- -c 127.0.0.1 9000
