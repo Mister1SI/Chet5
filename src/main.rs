@@ -43,7 +43,7 @@ fn main() {
         process::exit(1);
     }
 
-    if (config.server_mode) {
+    if config.server_mode {
         server::server(config);
     } else {
         client::client(config);

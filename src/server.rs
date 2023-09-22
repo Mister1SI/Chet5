@@ -1,5 +1,5 @@
 use std::net::{TcpListener, TcpStream};
-use std::io::{Read, Write};
+use std::io::Read;
 use crate::Config;
 use std::process;
 use std::thread::{self, JoinHandle};
@@ -14,7 +14,7 @@ pub fn server(config: Config) {
     };
 
     for stream in listener.incoming() {
-        let mut new_stream = match stream {
+        let new_stream = match stream {
             Ok(s) => s,
             Err(e) => {
                 println!("Error with incoming connection:\n{}", e);
